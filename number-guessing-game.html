@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Number Guessing Game</title>
+</head>
+<body>
+<h1>Number Guessing Game</h1>
+<button type="button" onclick="runGame()">Start Game</button>
+<script>
+
+const COLORS_ARRAY = ['blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow']
+COLORS_ARRAY.join = (', ');
+
+function runGame(){
+
+    let guessString = '';
+    let guess = 0; 
+    let correct = false;
+    let numTries = 0;
+
+    const targetIndex = Math.random() * 9; 
+    const randomInteger = Math.floor(targetIndex); 
+    const target = COLORS_ARRAY[randomInteger + 1]
+    console.log('Color Selected')
+
+    {if (guess === null) 
+        return alert('Some days are monochromatic. Feel free to return to this game when you are feeling more colorful!')
+    }
+
+    do {
+        guessString = prompt('I am thinking of one of these colors:\n\n' + COLORS_ARRAY + '\n\nWhat color am I thinking of?\n')
+        guess = +guessString
+        numTries +=1;
+        correct = checkGuess(guess,target)
+    }
+   
+    while (!correct); 
+    
+    document.body.style.background = guess;
+
+    alert('You are amazing! The color was:'\n\n = COLORS_ARRAY + '!'\n\n
+    'It took you ' + numTries + ' tries to guess correctly.');
+    
+}
+
+
+function checkGuess(guess, target) {
+    let correct = false;
+
+    if (guess != [COLORS_ARRAY]) {
+        alert('You have not entered a valid color.\n\nPlease guess one of the following colors:\n\n' + COLORS_ARRAY'.');
+    }   
+       else if (guessNumber > target) {
+        alert ('Try a color that starts with an earlier letter in the alphabet...');
+    }   else if (guessNumber < target) {
+        alert ('Try a color that starts with a later letter it the alphabet...');
+    }   else { 
+        correct = true;
+    }
+    return correct;
+}
+
+
+   </script>
+</body>
+</html>
